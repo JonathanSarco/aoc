@@ -2,6 +2,7 @@ package com.jonivan.aoc.y2021.d3
 
 import com.jonivan.aoc.utils.CountUtils.Companion.binaryToDecimal
 import com.jonivan.aoc.utils.CountUtils.Companion.checkCodeNumber
+import com.jonivan.aoc.utils.ListsUtils.Companion.readFile
 import com.jonivan.aoc.y2021.d3.Occurrences.Companion.getMostOfOccurrences
 import com.jonivan.aoc.y2021.d3.Occurrences.Companion.getNumbersBasedOnOccurrences
 import java.io.File
@@ -10,17 +11,6 @@ import java.io.File
  * https://adventofcode.com/2021/day/3
  * part 2
  */
-
-//fun readFile(): List<String> {
-//    val response: MutableList<String> = mutableListOf()
-//    File("src/main/resources/input_3.txt").useLines { lines ->
-//        lines.forEach {
-//            response.add(it)
-//        }
-//    }
-//    return response
-//}
-
 class Occurrences {
     companion object {
         fun getMostOfOccurrences(numbers: List<String>, col: Int, oxygen: Boolean = true): Char {
@@ -44,7 +34,7 @@ class Occurrences {
 }
 
 fun main() {
-    val lines = readFile()
+    val lines = readFile("src/main/resources/input_3.txt")
     val lengthList = lines[0].length
     println("LIST length: $lengthList")
 
