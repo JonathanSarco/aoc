@@ -55,8 +55,7 @@ data class Board(var board: List<List<Cell>>) {
     }
 }
 
-
-fun main() {
+fun getWinners() {
     val result = stringToMatrices(inputMatrix).map { Board(it) }
     val winners = mutableListOf<Pair<Int, Board>>()
 
@@ -71,9 +70,12 @@ fun main() {
             }
         }
     }
-
-    println("Win  $winners")
     val (number, board) = winners.first()
-
+    val (lastNumber, lastBoard) = winners.last()
     println("Number: ${board.sumUnmarked() * number}")
+    println("Last Number: ${lastBoard.sumUnmarked() * lastNumber}")
+}
+
+fun main() {
+    getWinners()
 }
