@@ -1,10 +1,7 @@
-package com.jonivan.aoc.y2021.d2
+package com.jonivan.aoc.y2021
 
 import java.io.File
 
-/**
- * https://adventofcode.com/2021/day/2
- */
 enum class Movement {
     FORWARD,
     UP,
@@ -42,7 +39,7 @@ fun doInstruction(instruction: Instruction) {
 }
 
 fun main() {
-    File("src/main/resources/input_2.txt").useLines { lines ->
+    File("src/main/resources/input_day_02.txt").useLines { lines ->
         lines.forEach {
             val mov = it.split(" ")[0].trim()
             val quan = it.split(" ")[1].trim().toInt()
