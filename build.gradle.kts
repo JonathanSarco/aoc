@@ -1,17 +1,26 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 val ktlint by configurations.creating
+
 plugins {
-    id("org.springframework.boot") version "3.0.6"
-    id("io.spring.dependency-management") version "1.1.0"
-    kotlin("jvm") version "1.8.0"
-    kotlin("plugin.spring") version "1.8.0"
-    kotlin("plugin.jpa") version "1.8.0"
+    id("org.springframework.boot") version "3.2.0"
+    id("io.spring.dependency-management") version "1.1.4"
+    kotlin("jvm") version "1.9.20"
+    kotlin("plugin.spring") version "1.9.20"
+    kotlin("plugin.jpa") version "1.9.20"
 }
 
 group = "com.jonivan"
 version = "0.0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_17
+
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
 
 repositories {
     mavenCentral()
@@ -32,8 +41,8 @@ dependencies {
 
 tasks.withType<KotlinCompile> {
     kotlinOptions {
-        freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "17"
+        freeCompilerArgs += "-Xjsr305=strict"
+        jvmTarget = "21"
     }
 }
 
