@@ -3,7 +3,7 @@ package com.jonivan.aoc.y2021
 import com.jonivan.aoc.utils.ListsUtils
 
 fun readCrabs(): MutableList<Int> {
-    val fishes = ListsUtils.readFile("src/main/resources/input_day_07_01.txt").map { it.split(",") }[0]
+    val fishes = ListsUtils.readFile("src/main/resources/input_day_07.txt").map { it.split(",") }[0]
     return fishes.map { it.toInt() }.toMutableList()
 }
 

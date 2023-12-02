@@ -63,7 +63,7 @@ class Digits {
 
 
 fun main() {
-    val result = ListsUtils.readFile("src/main/resources/2023/input_day_01_2.txt")
+    val result = ListsUtils.readFile("src/main/resources/2023/input_day_01.txt")
     var totalResult = 0
 
     result.forEach {

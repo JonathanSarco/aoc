@@ -7,7 +7,7 @@ import kotlin.math.abs
 data class Coordinate(val x: Int, val y: Int)
 
 fun readFileAndMap(): List<Pair<Coordinate, Coordinate>> {
-    val readFile = ListsUtils.readFile("src/main/resources/input_day_05_02.txt")
+    val readFile = ListsUtils.readFile("src/main/resources/input_day_05.txt")
     return StringUtils.stringToCoordinates(readFile)
 }
 
