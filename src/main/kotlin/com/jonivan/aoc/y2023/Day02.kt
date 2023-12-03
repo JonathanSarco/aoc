@@ -56,29 +56,32 @@ fun getMinimalParOfSet(setOfColors: List<String>): Int {
     return b * g * r
 }
 
-
-fun main() {
-
-    val lines = ListsUtils.readFile("src/main/resources/2023/input_day_02.txt")
+private fun partOne(input: List<String>) {
     var totalSum = 0
+    input.forEach { it ->
+        val result = it.split(":")
+        val gameId = Game.getGameId(result[0])
+        val sets = result[1].split(";").map { it.trimStart() }
+        if (isValidCubeSet(sets)) {
+            totalSum += gameId
+        }
+    }
+    println("result $totalSum")
+}
 
-    // Part 1
-//    lines.forEach { it ->
-//        val result = it.split(":")
-//        val gameId = Game.getGameId(result[0])
-//        val sets = result[1].split(";").map { it.trimStart() }
-//        if (isValidCubeSet(sets)) {
-//            totalSum += gameId
-//        }
-//    }
-
-    // Part 2
-    lines.forEach { it ->
+private fun partTwo(input: List<String>) {
+    var totalSum = 0
+    input.forEach { it ->
         val result = it.split(":")
         val sets = result[1].split(";").map { it.trimStart() }
         totalSum += getMinimalParOfSet(sets)
     }
 
     println("total sum $totalSum")
+}
 
+fun main() {
+    val lines = ListsUtils.readFile("src/main/resources/2023/input_day_02.txt")
+    partOne(lines)
+    partTwo(lines)
 }

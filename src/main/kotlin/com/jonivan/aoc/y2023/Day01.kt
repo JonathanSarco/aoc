@@ -18,7 +18,6 @@ enum class Numbers(val number: String, val value: Int) {
  * Second part
  */
 class WrittenDigits {
-
     companion object {
         fun getDigitOrWord(text: String, backwards: Boolean): Int {
             var finalResult = ""
@@ -61,15 +60,29 @@ class Digits {
     }
 }
 
+private fun partOne(input: List<String>) {
+    var totalResult = 0
+    input.forEach {
+        val number: String = WrittenDigits.getDigitOrWord(it, false).toString() + WrittenDigits.getDigitOrWord(it.reversed(), true)
+        totalResult += number.toInt()
+    }
+    print("p1: $totalResult")
+}
 
-fun main() {
-    val result = ListsUtils.readFile("src/main/resources/2023/input_day_01.txt")
+private fun partTwo(input: List<String>) {
     var totalResult = 0
 
-    result.forEach {
-       val number: String = WrittenDigits.getDigitOrWord(it, false).toString() + WrittenDigits.getDigitOrWord(it.reversed(), true)
+    input.forEach {
+        val number: String = WrittenDigits.getDigitOrWord(it, false).toString() + WrittenDigits.getDigitOrWord(it.reversed(), true)
         totalResult += number.toInt()
     }
 
-    print(totalResult)
+    print("p2: $totalResult")
+}
+
+
+fun main() {
+    val lines = ListsUtils.readFile("src/main/resources/2023/input_day_01.txt")
+    partOne(lines)
+    partTwo(lines)
 }
