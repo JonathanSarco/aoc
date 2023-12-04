@@ -2,7 +2,6 @@ package com.jonivan.aoc.y2023
 
 import com.jonivan.aoc.utils.ListsUtils
 
-
 class Game {
     companion object {
         fun getGameId(text: String): Int {
@@ -23,34 +22,33 @@ fun isValidCubeSet(setOfColors: List<String>): Boolean {
     setOfColors.forEach {
         val oneSet = it.split(",").map { v -> v.trimStart() }
         val blueColor = oneSet.firstOrNull { s -> s.contains(ColorMin.BLUE.color) }?.split(" ${ColorMin.BLUE.color}")
-        if (!blueColor.isNullOrEmpty() && blueColor[0].toInt() > 14) {
+        if (!blueColor.isNullOrEmpty() && blueColor[0].toInt() > ColorMin.BLUE.minNumber) {
             isValid = false
         }
 
         val greenColor = oneSet.firstOrNull { s -> s.contains(ColorMin.GREEN.color) }?.split(" ${ColorMin.GREEN.color}")
-        if (!greenColor.isNullOrEmpty() && greenColor[0].toInt() > 13) {
+        if (!greenColor.isNullOrEmpty() && greenColor[0].toInt() > ColorMin.GREEN.minNumber) {
             isValid = false
         }
 
         val redColor = oneSet.firstOrNull { s -> s.contains(ColorMin.RED.color) }?.split(" ${ColorMin.RED.color}")
-        if (!redColor.isNullOrEmpty() && redColor[0].toInt() > 12) {
+        if (!redColor.isNullOrEmpty() && redColor[0].toInt() > ColorMin.RED.minNumber) {
             isValid = false
         }
     }
     return isValid
 }
 
-
 fun getMinimalParOfSet(setOfColors: List<String>): Int {
     val allSet = setOfColors.flatMap { it.split(",") }.map { v -> v.trimStart() }
 
-    val blue = allSet.filter { it.contains("blue") }.flatMap { v -> v.split(" blue") }
+    val blue = allSet.filter { it.contains(ColorMin.BLUE.color) }.flatMap { v -> v.split(" ${ColorMin.BLUE.color}") }
     val b = blue.filterNot { it.isEmpty() }.map { v -> v.toInt() }.max()
 
-    val green = allSet.filter { it.contains("green") }.flatMap { v -> v.split(" green") }
+    val green = allSet.filter { it.contains(ColorMin.GREEN.color) }.flatMap { v -> v.split(" ${ColorMin.GREEN.color}") }
     val g = green.filterNot { it.isEmpty() }.map { v -> v.toInt() }.max()
 
-    val red = allSet.filter { it.contains("red") }.flatMap { v -> v.split(" red") }
+    val red = allSet.filter { it.contains(ColorMin.RED.color) }.flatMap { v -> v.split(" ${ColorMin.RED.color}") }
     val r = red.filterNot { it.isEmpty() }.map { v -> v.toInt() }.max()
 
     return b * g * r
@@ -66,7 +64,7 @@ private fun partOne(input: List<String>) {
             totalSum += gameId
         }
     }
-    println("result $totalSum")
+    println("P1 result: $totalSum")
 }
 
 private fun partTwo(input: List<String>) {
@@ -77,10 +75,11 @@ private fun partTwo(input: List<String>) {
         totalSum += getMinimalParOfSet(sets)
     }
 
-    println("total sum $totalSum")
+    println("P2 result: $totalSum")
 }
 
 fun main() {
+    println("---- Day 02 ----")
     val lines = ListsUtils.readFile("src/main/resources/2023/input_day_02.txt")
     partOne(lines)
     partTwo(lines)

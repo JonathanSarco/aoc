@@ -66,7 +66,7 @@ private fun partOne(input: List<String>) {
         val number: String = WrittenDigits.getDigitOrWord(it, false).toString() + WrittenDigits.getDigitOrWord(it.reversed(), true)
         totalResult += number.toInt()
     }
-    print("p1: $totalResult")
+    print("P1 result: $totalResult")
 }
 
 private fun partTwo(input: List<String>) {
@@ -77,12 +77,13 @@ private fun partTwo(input: List<String>) {
         totalResult += number.toInt()
     }
 
-    print("p2: $totalResult")
+    print("P2 result: $totalResult")
 }
 
 
 fun main() {
     val lines = ListsUtils.readFile("src/main/resources/2023/input_day_01.txt")
+    println("---- Day 01 ----")
     partOne(lines)
     partTwo(lines)
 }
