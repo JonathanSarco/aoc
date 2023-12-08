@@ -1,7 +1,7 @@
 package com.jonivan.aoc.y2021
 
 import com.jonivan.aoc.utils.CountUtils
-import com.jonivan.aoc.utils.ListsUtils
+import com.jonivan.aoc.utils.InputUtils
 import com.jonivan.aoc.y2021.Occurrences.Companion.getMostOfOccurrences
 import com.jonivan.aoc.y2021.Occurrences.Companion.getNumbersBasedOnOccurrences
 import java.io.File
@@ -93,7 +93,7 @@ class Occurrences {
 }
 
 fun main() {
-    val lines = ListsUtils.readFile("src/main/resources/input_day_03.txt")
+    val lines = InputUtils.readFileAsList("src/main/resources/input_day_03.txt")
     val lengthList = lines[0].length
     println("LIST length: $lengthList")
 

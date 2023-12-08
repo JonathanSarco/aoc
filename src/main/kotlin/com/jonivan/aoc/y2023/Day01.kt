@@ -1,6 +1,6 @@
 package com.jonivan.aoc.y2023
 
-import com.jonivan.aoc.utils.ListsUtils
+import com.jonivan.aoc.utils.InputUtils
 
 enum class Numbers(val number: String, val value: Int) {
     ONE("one", 1),
@@ -66,7 +66,7 @@ private fun partOne(input: List<String>) {
         val number: String = WrittenDigits.getDigitOrWord(it, false).toString() + WrittenDigits.getDigitOrWord(it.reversed(), true)
         totalResult += number.toInt()
     }
-    print("P1 result: $totalResult")
+    print("p1: $totalResult")
 }
 
 private fun partTwo(input: List<String>) {
@@ -77,13 +77,12 @@ private fun partTwo(input: List<String>) {
         totalResult += number.toInt()
     }
 
-    print("P2 result: $totalResult")
+    print("p2: $totalResult")
 }
 
 
 fun main() {
-    val lines = ListsUtils.readFile("src/main/resources/2023/input_day_01.txt")
-    println("---- Day 01 ----")
+    val lines = InputUtils.readFileAsList("src/main/resources/2023/input_day_01.txt")
     partOne(lines)
     partTwo(lines)
 }

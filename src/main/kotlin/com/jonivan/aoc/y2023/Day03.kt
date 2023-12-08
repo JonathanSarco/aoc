@@ -1,6 +1,6 @@
 package com.jonivan.aoc.y2023
 
-import com.jonivan.aoc.utils.ListsUtils
+import com.jonivan.aoc.utils.InputUtils
 
 
 data class NumberPos(val value: Int, val startPosCoord: Pair<Int, Int>) {
@@ -15,6 +15,7 @@ data class NumberPos(val value: Int, val startPosCoord: Pair<Int, Int>) {
                 bordersWithNumberPos.add(startPosCoord.first - 1 to x)
                 bordersWithNumberPos.add(startPosCoord.first + 1 to x)
             }
+        println("border $bordersWithNumberPos")
     }
 }
 
@@ -40,7 +41,7 @@ private fun partOne(input: List<String>) {
         part.bordersWithNumberPos.any { c -> symbolsMap.containsKey(c)}
     }
 
-    println("P1 result: ${validParts.sumOf { it.value }}")
+    println("result: ${validParts.sumOf { it.value }}")
 }
 
 
@@ -71,12 +72,11 @@ private fun partTwo(input: List<String>) {
             }
         }
     }
-    println("P2 result: ${gears.sumOf { it }}")
+    println("result: ${gears.sumOf { it }}")
 }
 
 fun main() {
-    println("---- Day 03 ----")
-    val input = ListsUtils.readFile("src/main/resources/2023/input_day_03.txt")
+    val input = InputUtils.readFileAsList("src/main/resources/2023/input_day_03.txt")
     partOne(input)
     partTwo(input)
 }

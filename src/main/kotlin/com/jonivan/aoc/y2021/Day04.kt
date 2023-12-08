@@ -1,10 +1,10 @@
 package com.jonivan.aoc.y2021
 
-import com.jonivan.aoc.utils.ListsUtils
+import com.jonivan.aoc.utils.InputUtils
 import com.jonivan.aoc.utils.StringUtils.Companion.stringToMatrices
 import java.io.File
 
-val inputList = ListsUtils.readFile("src/main/resources/input_day_04_1.txt").first().split(",")
+val inputList = InputUtils.readFileAsList("src/main/resources/input_day_04_1.txt").first().split(",")
 val inputMatrix = File("src/main/resources/input_day_04.txt").readText()
 data class Cell(
     val value: Int,

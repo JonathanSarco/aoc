@@ -1,13 +1,13 @@
 package com.jonivan.aoc.y2021
 
-import com.jonivan.aoc.utils.ListsUtils
+import com.jonivan.aoc.utils.InputUtils
 import com.jonivan.aoc.utils.StringUtils
 import kotlin.math.abs
 
 data class Coordinate(val x: Int, val y: Int)
 
 fun readFileAndMap(): List<Pair<Coordinate, Coordinate>> {
-    val readFile = ListsUtils.readFile("src/main/resources/input_day_05.txt")
+    val readFile = InputUtils.readFileAsList("src/main/resources/input_day_05.txt")
     return StringUtils.stringToCoordinates(readFile)
 }
 
