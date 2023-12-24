@@ -4,7 +4,7 @@ import com.jonivan.aoc.utils.InputUtils
 import com.jonivan.aoc.utils.MathUtils.Companion.leastCommonMultiple
 import kotlin.time.measureTime
 
-data class Node(val left: String, val right: String) {
+private data class Node(val left: String, val right: String) {
     fun getStep(dir: Char): String {
         return if (dir == 'L') this.left else this.right
     }
@@ -56,6 +56,6 @@ private fun partTwo(input: List<String>) {
 fun main() {
     val input = InputUtils.readFileAsList("src/main/resources/2023/input_day_08.txt")
 
-//    println("P1 time:  ${measureTime { partOne(input) }}")
+    println("P1 time:  ${measureTime { partOne(input) }}")
     println("P2 time:  ${measureTime { partTwo(input) }}")
 }
