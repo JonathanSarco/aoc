@@ -120,7 +120,7 @@ private fun part2(input: List<String>) {
 
 
 fun main() {
-    val input = InputUtils.readFileAsList("src/main/resources/2023/input_day_10.txt")
+    val input = InputUtils.readFileAsListString("src/main/resources/2023/input_day_10.txt")
     partOne(input)
     part2(input)
 }

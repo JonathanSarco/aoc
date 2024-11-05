@@ -93,7 +93,7 @@ class Occurrences {
 }
 
 fun main() {
-    val lines = InputUtils.readFileAsList("src/main/resources/input_day_03.txt")
+    val lines = InputUtils.readFileAsListString("src/main/resources/input_day_03.txt")
     val lengthList = lines[0].length
     println("LIST length: $lengthList")
 

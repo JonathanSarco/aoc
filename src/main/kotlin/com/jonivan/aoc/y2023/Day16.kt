@@ -113,6 +113,6 @@ private fun resolveBothParts(matrix: List<List<String>>) {
 
 
 fun main() {
-    val input = InputUtils.readFileAsList("src/main/resources/2023/input_day_16.txt")
+    val input = InputUtils.readFileAsListString("src/main/resources/2023/input_day_16.txt")
     resolveBothParts(input.map { row -> row.map { it.toString() } })
 }

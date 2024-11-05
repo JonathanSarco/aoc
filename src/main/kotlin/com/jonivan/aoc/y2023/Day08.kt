@@ -54,7 +54,7 @@ private fun partTwo(input: List<String>) {
 }
 
 fun main() {
-    val input = InputUtils.readFileAsList("src/main/resources/2023/input_day_08.txt")
+    val input = InputUtils.readFileAsListString("src/main/resources/2023/input_day_08.txt")
 
     println("P1 time:  ${measureTime { partOne(input) }}")
     println("P2 time:  ${measureTime { partTwo(input) }}")

@@ -82,7 +82,7 @@ private fun partOne(input: List<String>) {
     println("total $total")
 }
 fun main() {
-    val input = InputUtils.readFileAsList("src/main/resources/2023/input_day_11.txt")
+    val input = InputUtils.readFileAsListString("src/main/resources/2023/input_day_11.txt")
     partOne(input)
    // partOne(input)
 }

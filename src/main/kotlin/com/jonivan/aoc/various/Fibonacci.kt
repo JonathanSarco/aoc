@@ -1,7 +1,5 @@
 package com.jonivan.aoc.various
 
-
-
 private fun fibonacci(n: Int): Int {
     val map: MutableMap<Int, Int> = mutableMapOf()
 

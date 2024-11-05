@@ -28,7 +28,7 @@ class Lanternfish(
 }
 
 fun readFishes(): MutableList<Lanternfish> {
-    val fishes = InputUtils.readFileAsList("src/main/resources/input_day_06.txt").map { it.split(",") }[0]
+    val fishes = InputUtils.readFileAsListString("src/main/resources/input_day_06.txt").map { it.split(",") }[0]
     return fishes.map { Lanternfish(it.toInt(), false) }.toMutableList()
 }
 
@@ -76,7 +76,7 @@ private fun part2( input: List<String> ): Long {
 
 fun main() {
     executeTime(80)
-    val response = part2(InputUtils.readFileAsList("src/main/resources/input_day_06.txt"))
+    val response = part2(InputUtils.readFileAsListString("src/main/resources/input_day_06.txt"))
     println(response)
 }
 

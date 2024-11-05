@@ -146,7 +146,7 @@ private fun partTwo(input: List<List<String>>) {
 }
 
 fun main() {
-    val input = InputUtils.readFileAsList("src/main/resources/2023/input_day_14.txt")
+    val input = InputUtils.readFileAsListString("src/main/resources/2023/input_day_14.txt")
     partOne(input.map { line -> line.map { it.toString() } })
     partTwo(input.map { line -> line.map { it.toString() } })
 }

@@ -21,23 +21,29 @@ java {
     }
 }
 
-
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    val kotlinLoggingVersion: String by project
+    val klintVersion: String by project
+
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation("io.github.oshai:kotlin-logging-jvm:$kotlinLoggingVersion")
+
+    // test
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 
-    ktlint("com.pinterest:ktlint:0.49.0") {
+    ktlint("com.pinterest:ktlint:$klintVersion") {
         attributes {
             attribute(Bundling.BUNDLING_ATTRIBUTE, objects.named(Bundling.EXTERNAL))
         }
     }
 }
+
 
 tasks.withType<KotlinCompile> {
     kotlinOptions {

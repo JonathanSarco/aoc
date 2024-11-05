@@ -4,7 +4,7 @@ import java.io.File
 
 class InputUtils {
     companion object {
-        fun readFileAsList(filename: String): List<String> {
+        fun readFileAsListString(filename: String): List<String> {
             val response: MutableList<String> = mutableListOf()
             File(filename).useLines { lines ->
                 lines.forEach {
@@ -14,8 +14,9 @@ class InputUtils {
             return response
         }
 
-        fun readFileAsString(filename: String): String {
-            return File(filename).readText(Charsets.UTF_8)
-        }
+        fun readFileAsString(filename: String): String = File(filename).readText(Charsets.UTF_8)
+
+        fun File.convertToListString(): List<String> = this.readLines().dropLastWhile { it.isBlank() }
+
     }
 }
