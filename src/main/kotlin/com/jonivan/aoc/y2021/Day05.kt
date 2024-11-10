@@ -24,7 +24,7 @@ fun isDiagonal(line: Pair<Coordinate, Coordinate>): Boolean {
 enum class POSITION {
     X, Y, DG_MIN, DG_MAX
 }
-fun getMayorMinorFromCoordinates(position: POSITION, line: Pair<Coordinate, Coordinate>): Pair<Int,Int> {
+fun getMayorMinorFromCoordinates(position: POSITION, line: Pair<Coordinate, Coordinate>): Pair<Int, Int> {
     return when (position) {
         POSITION.X -> if (line.first.y < line.second.y) {
             Pair(line.first.y, line.second.y)
@@ -50,19 +50,19 @@ fun getMayorMinorFromCoordinates(position: POSITION, line: Pair<Coordinate, Coor
     }
 }
 
-fun coverPoint(board: MutableMap<Pair<Int,Int>, Int>, xValue: Int, yValue: Int) {
-        if (board.containsKey(Pair(xValue, yValue))) {
-            val prev = board[Pair(xValue, yValue)]
-            if (prev != null) {
-                board[Pair(xValue, yValue)] = prev + 1
-            }
-        } else {
-            board[Pair(xValue, yValue)] = 1
+fun coverPoint(board: MutableMap<Pair<Int, Int>, Int>, xValue: Int, yValue: Int) {
+    if (board.containsKey(Pair(xValue, yValue))) {
+        val prev = board[Pair(xValue, yValue)]
+        if (prev != null) {
+            board[Pair(xValue, yValue)] = prev + 1
         }
+    } else {
+        board[Pair(xValue, yValue)] = 1
+    }
 }
 
 fun main() {
-    val board = mutableMapOf<Pair<Int,Int>, Int>()
+    val board = mutableMapOf<Pair<Int, Int>, Int>()
 
     val response = readFileAndMap()
     response.forEach {
@@ -74,16 +74,16 @@ fun main() {
 
             println("min: $min, max $max")
 
-            var steps = abs(min.first - max.first);
-            val xStep = if (min.first > max.first) -1 else 1;
-            val yStep = if (min.second > max.second) -1 else 1;
+            var steps = abs(min.first - max.first)
+            val xStep = if (min.first > max.first) -1 else 1
+            val yStep = if (min.second > max.second) -1 else 1
             coverPoint(board, min.first, min.second)
             var x = min.first
             var y = min.second
             while (steps > 0) {
                 steps--
-                x += xStep;
-                y += yStep;
+                x += xStep
+                y += yStep
                 coverPoint(board, x, y)
             }
         }
@@ -113,4 +113,3 @@ fun main() {
     }
     println("Total overlap $sum")
 }
-

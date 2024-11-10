@@ -3,7 +3,7 @@ package com.jonivan.aoc.y2023
 import com.jonivan.aoc.base.Solution
 import com.jonivan.aoc.utils.InputUtils
 
-class Day04 : Solution<List<String>, Int>() {
+class Day04 : Solution<List<String>>() {
 
     private class Card {
         companion object {
@@ -60,7 +60,6 @@ class Day04 : Solution<List<String>, Int>() {
             }
             cardsToCopy.sort()
 
-
             val sameNumber = cardsToCopy.filter { copy -> copy == cardNumber }
 
             sameNumber.forEach { _ ->
@@ -73,7 +72,6 @@ class Day04 : Solution<List<String>, Int>() {
 
         return input.size + cardsToCopy.size
     }
-
 }
 
 fun main() {

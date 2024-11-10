@@ -4,31 +4,6 @@ import com.jonivan.aoc.utils.InputUtils
 
 private data class CellRock(val row: Int, val col: Int)
 
-private fun getBadRocks(matrix: List<List<String>>): MutableList<CellRock> {
-    val rocks: MutableList<CellRock> = mutableListOf()
-
-    matrix.forEachIndexed { indexRow, row ->
-        row.forEachIndexed { indexCol, col ->
-            if (col == "#") {
-                rocks.add(CellRock(indexRow, indexCol))
-            }
-        }
-    }
-    return rocks
-}
-
-private fun replaceRocks(currentRow: List<String>, followingRow: MutableList<String>): MutableList<String> {
-    val updatedRow = currentRow.toMutableList()
-
-    currentRow.indices.map { idx ->
-        if (currentRow[idx] == "." && followingRow[idx] == "O") {
-            updatedRow[idx] = followingRow[idx]
-            followingRow[idx] = "."
-        }
-    }
-    return updatedRow
-}
-
 private fun calculateBeams(roundedRocksNorth: List<List<String>>): Int {
     return roundedRocksNorth.withIndex().sumOf { rock ->
         val index = rock.index
@@ -46,7 +21,7 @@ private fun turnNorth(matrix: MutableList<MutableList<String>>) {
                         break
                     }
                     matrix[k][col] = "O"
-                    matrix[k+1][col] = "."
+                    matrix[k + 1][col] = "."
                 }
             }
         }

@@ -7,8 +7,11 @@ class MathUtils {
         }
 
         private tailrec fun greatestCommonDivisor(a: Long, b: Long): Long {
-            return if (b == 0L) a
-            else greatestCommonDivisor(b, a % b)
+            return if (b == 0L) {
+                a
+            } else {
+                greatestCommonDivisor(b, a % b)
+            }
         }
     }
 }

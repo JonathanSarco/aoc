@@ -3,7 +3,6 @@ package com.jonivan.aoc.y2023
 import com.jonivan.aoc.base.Solution
 import com.jonivan.aoc.utils.InputUtils
 
-
 class Day02 : Solution<List<String>>() {
 
     class Game {
@@ -17,7 +16,7 @@ class Day02 : Solution<List<String>>() {
     enum class ColorMin(val color: String, val minNumber: Int) {
         RED("red", 12),
         GREEN("green", 13),
-        BLUE("blue", 14)
+        BLUE("blue", 14),
     }
 
     private fun isValidCubeSet(setOfColors: List<String>): Boolean {
@@ -44,7 +43,6 @@ class Day02 : Solution<List<String>>() {
         }
         return isValid
     }
-
 
     private fun getMinimalParOfSet(setOfColors: List<String>): Int {
         val allSet = setOfColors.flatMap { it.split(",") }.map { v -> v.trimStart() }
@@ -84,7 +82,6 @@ class Day02 : Solution<List<String>>() {
         return totalSum
     }
 }
-
 
 fun main() {
     val lines = InputUtils.readFileAsListString("src/main/resources/2023/input_day_02.txt")

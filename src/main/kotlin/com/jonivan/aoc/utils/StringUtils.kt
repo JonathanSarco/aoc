@@ -27,7 +27,7 @@ class StringUtils {
 
                 Pair(left, right)
             }
-            return result;
+            return result
         }
     }
 }

@@ -57,7 +57,7 @@ private fun getNext(matrix: List<List<String>>, location: Location, dir: Cardina
 }
 
 private fun partOne(input: List<String>) {
-    val matrix = input.map { r -> r.map { c -> c.toString()  } }
+    val matrix = input.map { r -> r.map { c -> c.toString() } }
 
     val startingPoint = findStartingPoint(matrix, "S")
 
@@ -79,11 +79,11 @@ private fun partOne(input: List<String>) {
         if (matrix[curPos.row][curPos.col] == "S") break
     }
 
-    println( "${(tmpLoop.size / 2)}")
+    println("${(tmpLoop.size / 2)}")
 }
 
 private fun part2(input: List<String>) {
-    val matrix = input.map { r -> r.map { c -> c.toString()  } }
+    val matrix = input.map { r -> r.map { c -> c.toString() } }
     val startingPoint = findStartingPoint(matrix, "S")
     val tmpLoop = mutableListOf<Location>()
 
@@ -103,21 +103,19 @@ private fun part2(input: List<String>) {
         if (matrix[curPos.row][curPos.col] == "S") break
     }
 
-    val p2 = (1 ..< matrix.size - 1).sumOf { x ->
+    val p2 = (1..<matrix.size - 1).sumOf { x ->
         val idx = matrix[x].indices.filter { y ->
             val i1 = tmpLoop.indexOf(Location(x, y))
             val i2 = tmpLoop.indexOf(Location(x + 1, y))
             i1 != -1 && i2 != -1 && (abs(i1 - i2) == 1 || i1 in listOf(0, tmpLoop.lastIndex) && i2 in listOf(0, tmpLoop.lastIndex))
         }
         (idx.indices step 2).sumOf { i ->
-            (idx[i] .. idx[i + 1]).count { y -> Location(x ,y) !in tmpLoop }
+            (idx[i]..idx[i + 1]).count { y -> Location(x, y) !in tmpLoop }
         }
     }.toString()
 
     println("Part 2: $p2")
 }
-
-
 
 fun main() {
     val input = InputUtils.readFileAsListString("src/main/resources/2023/input_day_10.txt")

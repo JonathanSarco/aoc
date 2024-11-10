@@ -17,7 +17,7 @@ private fun calculatePredictionPast(diffs: List<MutableList<Int>>): Int {
     diffBottom.zipWithNext { a, b ->
         val lastAdded = a.first()
         val previousLast = b.first()
-        b.addFirst(previousLast - lastAdded)
+        b.add(previousLast - lastAdded)
     }
 
     diffBottom.reversed().forEach { println(it) }
@@ -52,7 +52,6 @@ private fun getDifferences(distances: List<Int>): List<MutableList<Int>> {
     return newDistances
 }
 
-
 private fun partOne(input: List<String>) {
     val distances = input.map { dis ->
         dis.split(" ").map { it.trim().toInt() }
@@ -75,10 +74,8 @@ private fun partTwo(input: List<String>) {
     println("P2 result: $result")
 }
 
-
 fun main() {
     val input = InputUtils.readFileAsListString("src/main/resources/2023/input_day_09.txt")
     println("P1 time:  ${measureTime { partOne(input) }}")
     println("P2 time:  ${measureTime { partTwo(input) }}")
 }
-

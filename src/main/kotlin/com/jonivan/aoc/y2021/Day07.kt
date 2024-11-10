@@ -9,7 +9,7 @@ fun readCrabs(): MutableList<Int> {
 
 class Crab(
     var value: Int,
-    var position: Int
+    var position: Int,
 )
 
 fun minPosition(crabs: List<Crab>): Pair<Int, Int> {
@@ -40,5 +40,3 @@ fun order() {
 fun main() {
     order()
 }
-
-

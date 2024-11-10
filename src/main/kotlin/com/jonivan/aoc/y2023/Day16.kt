@@ -28,7 +28,7 @@ private fun moveToDirection(state: CurrentState): CurrentState {
 fun render(grid: List<List<String>>, energized: Set<String>) {
     for (x in grid.indices) {
         var row = ""
-        for (y in 0 ..<grid[0].size) {
+        for (y in 0..<grid[0].size) {
             row += if ("$x,$y" in energized) "#" else grid[y][x]
         }
     }
@@ -36,7 +36,7 @@ fun render(grid: List<List<String>>, energized: Set<String>) {
 private fun resolveBothParts(matrix: List<List<String>>) {
     val energized: MutableSet<String> = mutableSetOf()
 
-    tailrec fun  step(state: CurrentState) {
+    tailrec fun step(state: CurrentState) {
         if (isOutOfBounds(matrix, state.row, state.col)) return
 
         val (row, col, direction, visited) = state
@@ -60,21 +60,21 @@ private fun resolveBothParts(matrix: List<List<String>>) {
             "-" -> when (direction) {
                 Direction.LEFT, Direction.RIGHT -> step(moveToDirection(state))
                 Direction.UP, Direction.DOWN -> {
-                    step(moveToDirection(CurrentState(row,col, Direction.LEFT, visited)))
-                    step(moveToDirection(CurrentState(row,col, Direction.RIGHT, visited)))
+                    step(moveToDirection(CurrentState(row, col, Direction.LEFT, visited)))
+                    step(moveToDirection(CurrentState(row, col, Direction.RIGHT, visited)))
                 }
             }
             "/" -> when (direction) {
-                Direction.UP -> step(moveToDirection(CurrentState(row,col, Direction.RIGHT, visited)))
-                Direction.DOWN -> step(moveToDirection(CurrentState(row,col, Direction.LEFT, visited)))
-                Direction.LEFT -> step(moveToDirection(CurrentState(row,col, Direction.DOWN, visited)))
-                Direction.RIGHT -> step(moveToDirection(CurrentState(row,col, Direction.UP, visited)))
+                Direction.UP -> step(moveToDirection(CurrentState(row, col, Direction.RIGHT, visited)))
+                Direction.DOWN -> step(moveToDirection(CurrentState(row, col, Direction.LEFT, visited)))
+                Direction.LEFT -> step(moveToDirection(CurrentState(row, col, Direction.DOWN, visited)))
+                Direction.RIGHT -> step(moveToDirection(CurrentState(row, col, Direction.UP, visited)))
             }
             "\\" -> when (direction) {
-                Direction.UP -> step(moveToDirection(CurrentState(row,col, Direction.LEFT, visited)))
-                Direction.DOWN -> step(moveToDirection(CurrentState(row,col, Direction.RIGHT, visited)))
-                Direction.LEFT -> step(moveToDirection(CurrentState(row,col, Direction.UP, visited)))
-                Direction.RIGHT -> step(moveToDirection(CurrentState(row,col, Direction.DOWN, visited)))
+                Direction.UP -> step(moveToDirection(CurrentState(row, col, Direction.LEFT, visited)))
+                Direction.DOWN -> step(moveToDirection(CurrentState(row, col, Direction.RIGHT, visited)))
+                Direction.LEFT -> step(moveToDirection(CurrentState(row, col, Direction.UP, visited)))
+                Direction.RIGHT -> step(moveToDirection(CurrentState(row, col, Direction.DOWN, visited)))
             }
         }
     }
@@ -83,7 +83,6 @@ private fun resolveBothParts(matrix: List<List<String>>) {
     step(CurrentState(0, 0, Direction.RIGHT, mutableSetOf()))
     render(matrix, energized)
     println("P1 result: ${energized.size}")
-
 
     val total = mutableSetOf<Int>()
 
@@ -110,7 +109,6 @@ private fun resolveBothParts(matrix: List<List<String>>) {
     }
     println("P2 result: ${total.max()}")
 }
-
 
 fun main() {
     val input = InputUtils.readFileAsListString("src/main/resources/2023/input_day_16.txt")

@@ -3,8 +3,7 @@ package com.jonivan.aoc.y2023
 import com.jonivan.aoc.base.Solution
 import com.jonivan.aoc.utils.InputUtils
 
-
-class Day07: Solution<List<String>, Int>() {
+class Day07 : Solution<List<String>>() {
 
     private enum class HandType {
         FIVE_PAIR, FOUR_PAIR, FULL_HOUSE, THREE_PAIR, TWO_PAIR, ONE_PAIR, HIGH_CARD, NULL_VALUE
@@ -14,7 +13,7 @@ class Day07: Solution<List<String>, Int>() {
 
         companion object {
             fun cardWeightNoJoker(c: Char): Int {
-                return when(c) {
+                return when (c) {
                     'A' -> 14
                     'K' -> 13
                     'Q' -> 12
@@ -75,7 +74,8 @@ class Day07: Solution<List<String>, Int>() {
         val comparator = Comparator { c1: CardBit, c2: CardBit ->
             c1.card.zip(c2.card)
                 .firstOrNull { (c1, c2) -> c1 != c2 }
-                ?.let { (c1, c2) -> CardBit.cardWeightNoJoker(c1).compareTo(CardBit.cardWeightNoJoker(c2))
+                ?.let { (c1, c2) ->
+                    CardBit.cardWeightNoJoker(c1).compareTo(CardBit.cardWeightNoJoker(c2))
                 } ?: 0
         }
 
@@ -88,13 +88,12 @@ class Day07: Solution<List<String>, Int>() {
         return result
     }
 
-
     override fun partOne(input: List<String>): Int {
         val cardAndBit = getCardsAndBits(input)
         val cardsWithTempRank: MutableList<CardBit> = mutableListOf()
 
         cardAndBit.forEach {
-            cardsWithTempRank.add(CardBit(it.card, it.bit, CardBit.defineHand(card = it.card) ))
+            cardsWithTempRank.add(CardBit(it.card, it.bit, CardBit.defineHand(card = it.card)))
         }
 
         val orderedCards = orderByCards(cardsWithTempRank)
@@ -123,7 +122,7 @@ class Day07: Solution<List<String>, Int>() {
                     cardBit.card
                 }
             }
-            finalCards.add(CardBit(cardBit.card, cardBit.bit, CardBit.defineHand(card = replaced) ))
+            finalCards.add(CardBit(cardBit.card, cardBit.bit, CardBit.defineHand(card = replaced)))
         }
 
         val orderedCards = orderByCards(finalCards)
@@ -134,7 +133,6 @@ class Day07: Solution<List<String>, Int>() {
         }
         return totalResult.toInt()
     }
-
 }
 
 fun main() {
@@ -143,5 +141,3 @@ fun main() {
     day.solvePart1(input)
     day.solvePart2(input)
 }
-
-

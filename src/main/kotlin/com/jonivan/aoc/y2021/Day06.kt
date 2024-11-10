@@ -4,10 +4,9 @@ import com.jonivan.aoc.utils.InputUtils
 import java.util.*
 import kotlin.collections.ArrayList
 
-
 class Lanternfish(
     var internalValue: Int,
-    var newOne: Boolean
+    var newOne: Boolean,
 ) {
     fun reduceTime() {
         internalValue--
@@ -55,23 +54,21 @@ fun executeTime(days: Int): Int {
     return fishes.size
 }
 
-private fun part2( input: List<String> ): Long {
-    val numbers = input[0].split( "," ).map { it.toInt() }
+private fun part2(input: List<String>): Long {
+    val numbers = input[0].split(",").map { it.toInt() }
 
-    val lanternfish = Array<Long>( 9 ) { 0 }.toCollection( ArrayList() )
+    val lanternfish = Array<Long>(9) { 0 }.toCollection(ArrayList())
 
-    for ( number in numbers )
-    {
+    for (number in numbers) {
         lanternfish[number]++
     }
 
-    for ( i in 1..256 )
-    {
-        Collections.rotate( lanternfish, -1 )
+    for (i in 1..256) {
+        Collections.rotate(lanternfish, -1)
         lanternfish[6] += lanternfish[8]
     }
 
-    return lanternfish.sum();
+    return lanternfish.sum()
 }
 
 fun main() {
@@ -79,4 +76,3 @@ fun main() {
     val response = part2(InputUtils.readFileAsListString("src/main/resources/input_day_06.txt"))
     println(response)
 }
-

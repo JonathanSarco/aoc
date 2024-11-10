@@ -3,8 +3,7 @@ package com.jonivan.aoc.y2023
 import com.jonivan.aoc.base.Solution
 import com.jonivan.aoc.utils.InputUtils
 
-
-class Day06: Solution<List<String>, Int>() {
+class Day06 : Solution<List<String>>() {
     private fun getParts(input: List<String>, index: Int = 0): List<Long> {
         val part = input[index].split(":")[1].split(" ").filter { it.isNotEmpty() }.map { it.toLong() }
         println("index[$index] -> $part")
@@ -17,8 +16,6 @@ class Day06: Solution<List<String>, Int>() {
         return part.joinToString("").toLong()
     }
 
-
-
     private fun calculateSpeed(maxTimeRace: Long, recordDistance: Long): Int {
         var totalChanges = 0
         for (i in 1..<maxTimeRace) { // holding 1 until max minus 1
@@ -29,7 +26,6 @@ class Day06: Solution<List<String>, Int>() {
         }
         return totalChanges
     }
-
 
     override fun partOne(input: List<String>): Int {
         val times = getParts(input, 0)
@@ -54,7 +50,6 @@ class Day06: Solution<List<String>, Int>() {
         }
         return totalChances
     }
-
 }
 
 fun main() {

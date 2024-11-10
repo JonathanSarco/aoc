@@ -17,6 +17,5 @@ class InputUtils {
         fun readFileAsString(filename: String): String = File(filename).readText(Charsets.UTF_8)
 
         fun File.convertToListString(): List<String> = this.readLines().dropLastWhile { it.isBlank() }
-
     }
 }

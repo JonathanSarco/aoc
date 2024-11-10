@@ -28,11 +28,11 @@ private fun partTwo(input: String) {
 
     val map = buildMap<String, Int>() {
         for (l in commaSeparated)
-            if (l.contains('-'))
+            if (l.contains('-')) {
                 remove(l.substringBefore('-'))
-            else
+            } else
                 l.split('=')
-                .let { (a, b) -> this[a] = b.toInt() }
+                    .let { (a, b) -> this[a] = b.toInt() }
     }
 
     val result = map

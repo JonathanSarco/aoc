@@ -11,7 +11,7 @@ private fun fibonacci(n: Int): Int {
         println("i $i")
         println("-1 ${map[i - 1]!!}")
         println("-2 ${map[i - 2]!!}")
-        map[i] = map[i-1]!! + map[i-2]!!
+        map[i] = map[i - 1]!! + map[i - 2]!!
         println("map $map")
     }
 

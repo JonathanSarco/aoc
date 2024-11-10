@@ -3,12 +3,11 @@ package com.jonivan.aoc.y2023
 import com.jonivan.aoc.base.Solution
 import com.jonivan.aoc.utils.InputUtils
 
-
-class Day03 : Solution<List<String>, Int>() {
+class Day03 : Solution<List<String>>() {
 
     data class NumberPos(val value: Int, val startPosCoord: Pair<Int, Int>) {
-        val bordersWithNumberPos = mutableListOf<Pair<Int, Int>>();
-        private val length = value.toString().length;
+        val bordersWithNumberPos = mutableListOf<Pair<Int, Int>>()
+        private val length = value.toString().length
 
         init {
             bordersWithNumberPos.add(startPosCoord.copy(second = startPosCoord.second - 1))
@@ -32,9 +31,11 @@ class Day03 : Solution<List<String>, Int>() {
 
         input.forEachIndexed { lineNum, line ->
 
-            possibleParts.addAll(numRegex.findAll(line).map {
-                NumberPos(it.value.toInt(), lineNum to it.range.first)
-            })
+            possibleParts.addAll(
+                numRegex.findAll(line).map {
+                    NumberPos(it.value.toInt(), lineNum to it.range.first)
+                },
+            )
 
             allSymbolsRegex.findAll(line).forEach {
                 symbolsMap[lineNum to it.range.first] = it.value
@@ -56,9 +57,11 @@ class Day03 : Solution<List<String>, Int>() {
         val symbolsMap = mutableMapOf<Pair<Int, Int>, String>()
 
         input.forEachIndexed { lineNum, line ->
-            possibleParts.addAll(numRegex.findAll(line).map {
-                NumberPos(it.value.toInt(), lineNum to it.range.first)
-            })
+            possibleParts.addAll(
+                numRegex.findAll(line).map {
+                    NumberPos(it.value.toInt(), lineNum to it.range.first)
+                },
+            )
 
             allSymbolsRegex.findAll(line).forEach {
                 symbolsMap[lineNum to it.range.first] = it.value

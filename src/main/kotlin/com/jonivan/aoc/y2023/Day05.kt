@@ -4,8 +4,7 @@ import com.jonivan.aoc.base.Solution
 import com.jonivan.aoc.utils.InputUtils
 import java.util.stream.LongStream
 
-
-class Day05 : Solution<List<String>, Int>() {
+class Day05 : Solution<List<String>>() {
 
     data class Range(val destinationRangeStart: Long, val sourceRangeStart: Long, val rangeLength: Long)
 

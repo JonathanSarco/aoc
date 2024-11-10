@@ -1,11 +1,10 @@
 package com.jonivan.aoc.y2023
 
 import com.jonivan.aoc.base.Solution
-import com.jonivan.aoc.utils.InputUtils
 import com.jonivan.aoc.utils.InputUtils.Companion.convertToListString
 import java.io.File
 
-class Day01 : Solution<List<String>, Int>() {
+class Day01 : Solution<List<String>>() {
     enum class Numbers(val number: String, val value: Int) {
         ONE("one", 1),
         TWO("two", 2),
@@ -45,7 +44,6 @@ class Day01 : Solution<List<String>, Int>() {
                 return finalResult.toInt()
             }
         }
-
     }
 
     /**
@@ -87,9 +85,7 @@ class Day01 : Solution<List<String>, Int>() {
     }
 }
 
-
 fun main() {
-//    val lines = InputUtils.readFileAsListString("src/main/resources/2023/input_day_01.txt")
     val lines = File("src/main/resources/2023/input_day_01.txt").convertToListString()
     val day = Day01()
     day.solvePart1(lines)

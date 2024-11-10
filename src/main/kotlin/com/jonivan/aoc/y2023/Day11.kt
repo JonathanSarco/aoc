@@ -29,7 +29,7 @@ private fun expandUniverse(expanded: MutableList<MutableList<String>>, expansion
     galaxiesToExpand.forEach { point ->
         if (point.row != -1) {
             sy += additional
-            expanded.add(point.row + sy, MutableList(expanded[0].size) { "." } )
+            expanded.add(point.row + sy, MutableList(expanded[0].size) { "." })
         }
     }
     var sx = 0
@@ -63,10 +63,16 @@ private fun partOne(input: List<String>) {
     println("\n Expanded")
     var count = 0
     universeExpanded.forEachIndexed { _, o ->
-        println("> ${o.map { x -> if (x == "#"){
-            count++
-            (count).toString()
-        } else "." }}")
+        println(
+            "> ${o.map { x ->
+                if (x == "#"){
+                    count++
+                    (count).toString()
+                } else {
+                    "."
+                }
+            }}",
+        )
     }
     val galaxies = findGalaxies(universeExpanded)
     galaxies.forEach {
@@ -84,5 +90,5 @@ private fun partOne(input: List<String>) {
 fun main() {
     val input = InputUtils.readFileAsListString("src/main/resources/2023/input_day_11.txt")
     partOne(input)
-   // partOne(input)
+    // partOne(input)
 }

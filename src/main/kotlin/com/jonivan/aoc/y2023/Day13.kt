@@ -1,10 +1,10 @@
 import com.jonivan.aoc.utils.InputUtils
 
-
 fun solvePart1(patterns: List<List<String>>): Int {
     return patterns.sumOf {
         it.forEach {
-                r -> println(r)
+                r ->
+            println(r)
         }
         it.reflection(withSmudge = false)
     }
