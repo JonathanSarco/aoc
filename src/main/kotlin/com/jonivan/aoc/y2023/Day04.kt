@@ -3,7 +3,7 @@ package com.jonivan.aoc.y2023
 import com.jonivan.aoc.base.Solution
 import com.jonivan.aoc.utils.InputUtils
 
-class Day04 : Solution<List<String>, Int>() {
+class Day04 : Solution<List<String>>() {
 
     private class Card {
         companion object {

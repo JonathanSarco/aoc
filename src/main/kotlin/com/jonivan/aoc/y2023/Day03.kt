@@ -4,7 +4,7 @@ import com.jonivan.aoc.base.Solution
 import com.jonivan.aoc.utils.InputUtils
 
 
-class Day03 : Solution<List<String>, Int>() {
+class Day03 : Solution<List<String>>() {
 
     data class NumberPos(val value: Int, val startPosCoord: Pair<Int, Int>) {
         val bordersWithNumberPos = mutableListOf<Pair<Int, Int>>();

@@ -4,7 +4,7 @@ import com.jonivan.aoc.base.Solution
 import com.jonivan.aoc.utils.InputUtils
 
 
-class Day07: Solution<List<String>, Int>() {
+class Day07: Solution<List<String>>() {
 
     private enum class HandType {
         FIVE_PAIR, FOUR_PAIR, FULL_HOUSE, THREE_PAIR, TWO_PAIR, ONE_PAIR, HIGH_CARD, NULL_VALUE

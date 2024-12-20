@@ -7,25 +7,29 @@ abstract class Solution<T> {
 
     private val logger = KotlinLogging.logger {}
 
-    abstract fun partOne(input: T): Any
+    private fun solvePart(input: T, partLabel: String, solver: (T) -> Any) {
+        val initTime = System.nanoTime()
+        val solution = solver(input)
+        val finishTime = System.nanoTime()
+        val totalTime = TimeUnit.NANOSECONDS.toMillis(finishTime - initTime)
+
+        logger.info { """
+            
+            -----------------------------------------
+                     $partLabel: $solution
+                     TotalTime: $totalTime ms
+            -----------------------------------------
+        """.trimIndent() }
+    }
 
     fun solvePart1(input: T) {
-        val initTime = System.nanoTime()
-        val solution = partOne(input)
-        val finishTime = System.nanoTime()
-        val totalTime: Long = TimeUnit.NANOSECONDS.toMillis(finishTime - initTime)
-
-        logger.info { "Part1: $solution - TotalTime: $totalTime" }
+        solvePart(input, "Part1", ::partOne)
     }
-
-    abstract fun partTwo(input: T): Any
 
     fun solvePart2(input: T) {
-        val initTime = System.nanoTime()
-        val solution = partOne(input)
-        val finishTime = System.nanoTime()
-        val totalTime: Long = TimeUnit.NANOSECONDS.toMillis(finishTime - initTime)
-
-        logger.info { "Part2: $solution - TotalTime: $totalTime" }
+        solvePart(input, "Part2", ::partTwo)
     }
+
+    abstract fun partOne(input: T): Any
+    abstract fun partTwo(input: T): Any
 }

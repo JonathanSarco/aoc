@@ -4,7 +4,7 @@ import com.jonivan.aoc.base.Solution
 import com.jonivan.aoc.utils.InputUtils
 
 
-class Day06: Solution<List<String>, Int>() {
+class Day06: Solution<List<String>>() {
     private fun getParts(input: List<String>, index: Int = 0): List<Long> {
         val part = input[index].split(":")[1].split(" ").filter { it.isNotEmpty() }.map { it.toLong() }
         println("index[$index] -> $part")

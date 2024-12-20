@@ -5,7 +5,7 @@ import com.jonivan.aoc.utils.InputUtils
 
 
 
-class Day17: Solution<List<String>, Int>() {
+class Day17: Solution<List<String>>() {
     override fun partOne(input: List<String>): Int {
         TODO("Not yet implemented")
     }

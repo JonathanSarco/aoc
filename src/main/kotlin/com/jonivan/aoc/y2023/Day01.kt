@@ -1,11 +1,10 @@
 package com.jonivan.aoc.y2023
 
 import com.jonivan.aoc.base.Solution
-import com.jonivan.aoc.utils.InputUtils
 import com.jonivan.aoc.utils.InputUtils.Companion.convertToListString
 import java.io.File
 
-class Day01 : Solution<List<String>, Int>() {
+class Day01 : Solution<List<String>>() {
     enum class Numbers(val number: String, val value: Int) {
         ONE("one", 1),
         TWO("two", 2),
@@ -18,9 +17,6 @@ class Day01 : Solution<List<String>, Int>() {
         NINE("nine", 9),
     }
 
-    /**
-     * Second part
-     */
     class WrittenDigits {
         companion object {
             fun getDigitOrWord(text: String, backwards: Boolean): Int {
@@ -46,22 +42,6 @@ class Day01 : Solution<List<String>, Int>() {
             }
         }
 
-    }
-
-    /**
-     * First part
-     */
-    class Digits {
-        companion object {
-            private fun getDigit(text: String): Int? {
-                return text.firstOrNull { it.isDigit() }?.digitToInt()
-            }
-
-            fun getDigits(text: String): Int {
-                val finalNumber: String = getDigit(text = text).toString() + getDigit(text = text.reversed()).toString()
-                return finalNumber.toInt()
-            }
-        }
     }
 
     override fun partOne(input: List<String>): Int {
