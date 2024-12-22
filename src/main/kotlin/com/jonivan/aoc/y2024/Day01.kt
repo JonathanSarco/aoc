@@ -42,3 +42,4 @@ fun main() {
     day.solvePart1(lines)
     day.solvePart2(lines)
 }
+
